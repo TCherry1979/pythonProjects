@@ -1,0 +1,31 @@
+""""
+This program is to display the characters in the ASCII character table from ! to ~ based on the following criteria:
+
+    1. This program is to display ten characters per line.
+    2. The characters are separated by exactly one space.
+
+Date: 10/03/2024
+
+Functions:
+    ord() - Return the Unicode code point for a one-character string.
+    chr() - Return the string representing a character whose Unicode code point is the integer i.
+    range() - Return an object that produces a sequence of integers from start (inclusive) to stop (exclusive) by step.
+"""
+
+def display_ascii_table():
+    # Define the ASCII range from '!' (33) to '~' (126)
+    start_char = ord('!') # where the ASCII value of '!' is 33
+    end_char = ord('~')  # where the ASCII value of '~' is 126
+    
+    # Iterate through the range of ASCII values
+    for i in range(start_char, end_char + 1): 
+        # Print each character with a space, but no newline
+        print(chr(i), end=' ')
+        
+        # Print a newline after every 10 characters
+        if (i - start_char + 1) % 10 == 0:
+            print()  # Newline
+
+# Call the function to display the ASCII table
+display_ascii_table()
+
