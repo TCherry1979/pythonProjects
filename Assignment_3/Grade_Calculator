@@ -1,0 +1,51 @@
+"""
+This program simulates a grade calculator that takes an exam score as input
+and returns a grade based on the following criteria:
+
+The program does the following:
+1. Takes an exam score as input
+2. Validates the input to ensure it is a number between 0 and 100
+3. Uses conditional statements to determine the grade based on the following criteria
+4. Prints the output of the grade calculation
+
+Date: 09/22/2024
+"""
+
+
+examScore = None #initialize the variable examScore to None to start the loop
+
+# loop to validate the input
+while examScore is None:
+# prompt the student to answer "what is your exam score?"
+    examScore = input("What is your exam score? ")
+    try:
+        # convert the score to a number (float)
+        examScore = float(examScore)
+        # check if score is below 0
+        if examScore < 0:
+            print("Invalid input! Exam score cannot be below 0.")
+            examScore = None
+
+        elif examScore > 100:
+            print("Invalid input! Exam score cannot be above 100.")
+            examScore = None
+
+    except ValueError:
+        # if conversion is not a number, reset examScore to None and prompt again
+        print("Invalid input. Please enter a NUMBER between 0 and 100.")
+        examScore = None
+        
+
+# check to see where score ranks on grading scale & print the grade
+if examScore >= 90.0:
+    print("Your grade is A")
+elif examScore >= 80.0:
+    print("Your grade is B")
+elif examScore >= 70.0:
+    print("Your grade is C")
+elif examScore >= 60.0:
+    print("Your grade is D")
+else:
+    print("Your grade is F")
+
+# end of program
