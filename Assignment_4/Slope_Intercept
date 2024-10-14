@@ -1,0 +1,57 @@
+"""
+    This is a program that prompts the user to enter the coordinates of two points (x1, y1) and (x2, y2) and displays the line equation in the slope
+- intercept form (y = mx + b) based on the following criteria:
+
+1. prompts the user to enter the coordinates of two points (x1, y1) and (x2, y2)
+2. verifies the input to ensure:
+     #m is not displayed if equal to 1
+     #b is not displayed if equal to 0
+#3. use conditional statements to determine the slope and intercept of the line
+#4. print the line equation in the slope - intercept form (y = mx + b)
+
+Date: 2024-90-26
+"""
+
+# Step 1: Prompt the user to enter the coordinates of two points (x1, y1) and (x2, y2)
+x1 = float(input("Enter X1: "))
+y1 = float(input("Enter Y1: "))
+x2 = float(input("Enter X2: "))
+y2 = float(input("Enter Y2: "))
+
+# Step 2: check to make sure x and y are not equal to each other
+if x2 - x1 != 0 and y2 - y1 != 0:  
+    
+    # Step 3: Calculate the slope (m)
+    m = (y2 - y1) / (x2 - x1)
+
+    # Step 4: Calculate the y-intercept (b)
+    b = y1 - m * x1
+
+    # Step 5: Construct the equation based on the conditions
+    equation = "y = "
+
+    # Print the slope (m) part of the equation
+    if m != 1:
+        equation += str(m) + "x"  # Only show m if it's not equal to 1
+    else:
+        equation += "x"  # Just show 'x' if m equals 1
+
+    # Print the intercept (b) part of the equation
+    if b != 0:
+        equation += " + " + str(b)  # Show + b if b is positive
+    else:
+        equation += " - " + str(abs(b))  # Show - b if b is negative
+
+    # Step 6: Display the final equation
+    print("The equation of the line is: " + equation)
+
+# If the line is horizontal or vertical
+elif x2 - x1 == 0:
+    print("The line is vertical and does not have a slope-intercept form.")
+elif y2 - y1 == 0:
+    print("The line is horizontal with an equation of y = " + str(y1))
+
+# If the points are the same
+else:
+    print("The two points are the same, no valid line can be formed.")
+exit()
