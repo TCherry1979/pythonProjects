@@ -1,1 +1,30 @@
+"""
+    The goal of this assignment was to write a program that displays the area and perimeter of a rectangle.
+    Demonstrated below shows the process of obtaining the correct results below. 
+
+Functions:
+    The area of a rectangle can be computed by the formula: area = width * height
+    The perimeter of a rectangle can be computed by the formula: perimeter = 2 * (width + height)
+    
+"""
+#Define the width and height of the rectangle
+width = 4.5
+height = 7.9 
+
+#Calculate the area
+area = width * height
+area = 4.5 * 7.9
+print(area)
+
+#Calculate the perimeter
+perimeter = 2 * (width + height)
+perimeter = 2 * (4.5 + 7.9)
+print(perimeter)
+
+#Display the results
+print(area)
+print(perimeter)
+
+#Output
+
 
