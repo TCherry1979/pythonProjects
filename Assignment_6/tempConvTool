@@ -1,0 +1,77 @@
+""" 
+The purpose of this project is to implement a command-line tool that allows the user to convert temperatures between Celsius and Fahrenheit. 
+The program will offer a simple text-based menu interface and allow the user to choose which type of conversion they would like to perform.
+
+Date: 10/11/2024
+
+Functions:
+    The program should provide the following coversion options:
+    - celsius_to_fahrenheit 
+    - fahrenheit_to_celsius
+"""
+
+# Function to convert Celsius to Fahrenheit
+def celsius_to_fahrenheit(celsius):
+    """Converts Celsius to Fahrenheit."""
+    return (celsius * 9/5) + 32
+
+# Function to convert Fahrenheit to Celsius
+def fahrenheit_to_celsius(fahrenheit):
+    """Converts Fahrenheit to Celsius."""
+    return (fahrenheit - 32) * 5/9
+
+# Function to display the menu and get the user's choice
+def display_menu():
+    """Displays the menu and returns the user's choice."""
+    print("\nWelcome to the Temperature Conversion Tool!")
+    print("Select the conversion you would like to perform:")
+    print("1. Convert Celsius to Fahrenheit")
+    print("2. Convert Fahrenheit to Celsius")
+    print("3. Exit")
+    
+    # Get and validate user's choice
+    while True:
+        try:
+            choice = int(input("Enter your choice (1-3): "))
+            if choice in [1, 2, 3]:
+                return choice
+            else:
+                print("Invalid choice. Please select 1, 2, or 3.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+# Main function to run the program
+def main():
+    """Main function to run the temperature conversion tool."""
+    while True:
+        # Display the menu and get the user's choice
+        choice = display_menu()
+        
+        if choice == 1:
+            # Convert Celsius to Fahrenheit
+            try:
+                celsius = float(input("Enter temperature in Celsius: "))
+                fahrenheit = celsius_to_fahrenheit(celsius)
+                # print celcius and fahrenheit
+                print(f"It is {celsius}{chr(176)}C which is {fahrenheit}{chr(176)}F")
+            except ValueError:
+                print("Invalid temperature input. Please enter a numeric value.")
+        
+        elif choice == 2:
+            # Convert Fahrenheit to Celsius
+            try:
+                fahrenheit = float(input("Enter temperature in Fahrenheit: "))
+                celsius = fahrenheit_to_celsius(fahrenheit)
+                # print fahrenheit and celsius
+                print(f"It is {fahrenheit}{chr(176)}F which is {celsius}{chr(176)}C")
+            except ValueError:
+                print("Invalid temperature input. Please enter a numeric value.")
+        
+        elif choice == 3:
+            # Exit the program
+            print("Goodbye!")
+            break
+
+# Run the main function
+if __name__ == "__main__":
+    main()
